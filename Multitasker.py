@@ -1,5 +1,5 @@
 '''
-Python code for cleaning text files so that it could be more accessable to read. 
+Python code for cleaning text files so that it could be more accessible to read. 
 Mostly able to fix only common mistakes like forced line changes, splitted words and uncommon symbols.
 
 @author: Johneagle
