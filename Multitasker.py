@@ -1,5 +1,5 @@
 '''
-Python code for cleaning text files so that it could be more accessible to read. 
+Python code for cleaning text files so that it could be more accessable to read. 
 Mostly able to fix only common mistakes like forced line changes, splitted words and uncommon symbols.
 
 @author: Johneagle
@@ -38,8 +38,9 @@ if __name__ == "__main__":
             if (parse[length - 2] != '.' and parse[length - 2] != '!' and parse[length - 2] != '?'):
                 if (parse[length - 2] == chr(45) or parse[length - 2] == chr(196) or parse[length - 2] == chr(173)):
                     parse[length - 2] = ''
-
-                parse[length - 1] = ' '
+                    parse[length - 1] = ''
+                else:
+                    parse[length - 1] = ' '
             else:
                 parse.append('\n')
             
@@ -48,8 +49,10 @@ if __name__ == "__main__":
 
             for char in parse:
                 if (char == ' '):
-                    if (0 < (point - 1) and len(parse) > (point + 1)):
+                    if (0 <= (point - 1) and len(parse) > (point + 1)):
                         if (parse[point - 1].isupper() and parse[point + 1].isupper()):
+                            char = ''
+                        if (parse[point + 1] == ' '):
                             char = ''
 
                 if (char == chr(187)):
@@ -73,7 +76,13 @@ if __name__ == "__main__":
             if ('ENITEN' in result):
                 result = result[:6] + ' ' + result[6:]
 
-            if ('TEKSTI' in result and 'TEKSTI:' not in result):
+            if ('VALMISTUSAIKA' in result):
+                result = result[:13] + ' ' + result[13:]
+
+            if ('TEKSTIJAKUVAT' in result and 'TEKSTI JA KUVAT:' not in result):
+                result = result[:6] + ' ' + result[6:8] + ' ' + result[8:13] + ': ' + result[13:]
+
+            if ('TEKSTI' in result and 'TEKSTI:' not in result and 'TEKSTI JA' not in result):
                 result = result[:6] + ': ' + result[6:]
 
             if ('KUVAUS' in result and 'KUVAUS:' not in result):
@@ -82,11 +91,14 @@ if __name__ == "__main__":
             if ('KUVAT' in result and 'KUVAT:' not in result):
                 result = result[:5] + ': ' + result[5:]
 
-            if ('KUVA' in result and 'KUVA:' not in result):
+            if ('KUVA' in result and 'KUVA:' not in result and 'KUVAT:' not in result and 'KUVALEHTI' not in result):
                 result = result[:4] + ': ' + result[4:]
 
             if ('KOONNUT' in result and 'KOONNUT:' not in result):
                 result = result[:7] + ': ' + result[7:]
+
+            if ('KOONNEET' in result and 'KOONNEET:' not in result):
+                result = result[:8] + ': ' + result[8:]
 
             newF.write(str(result))
 
