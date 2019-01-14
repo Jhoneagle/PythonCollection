@@ -1,4 +1,4 @@
-# Python Collection
+# Python collection
 
 Contains self made python scripts
 
