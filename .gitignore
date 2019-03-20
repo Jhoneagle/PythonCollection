@@ -1,0 +1,15 @@
+*.json
+*.db
+*.pyproj
+*.sln
+ptvs_virtualenv_proxy.py
+web.config
+web.debug.config
+*.cfg
+scripts/
+pip-selfcheck.json
+share/
+*.xml
+*.csv
+*.rar
+venv/
