@@ -8,7 +8,7 @@ Mostly able to fix only common mistakes like forced line changes, splitted words
 import sys, os
 
 if __name__ == "__main__":
-    path = 'tries/kodi.md'
+    path = sys.argv[2]
 
     name = path.split('.')[0]
 
