@@ -8,7 +8,7 @@ Mostly able to fix only common mistakes like forced line changes, splitted words
 import sys, os
 
 if __name__ == "__main__":
-    path = sys.argv[2]
+    path = sys.argv[1]
 
     name = path.split('.')[0]
 
