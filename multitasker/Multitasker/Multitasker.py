@@ -25,6 +25,12 @@ if __name__ == "__main__":
                 newF.write(str('\n'))
                 continue
 
+            if (parse[length - 4] == '.' or parse[length - 4] == '!' or parse[length - 4] == '?'):
+                if (parse[length - 3] == '"'):
+                    if (parse[length - 2] == ' '):
+                    parse.append('\n')
+                    parse.append('\n')
+
             if (parse[length - 3] == '.' or parse[length - 3] == '!' or parse[length - 3] == '?'):
                 if (parse[length - 2] == ' ' or parse[length - 2] == '"'):
                     parse.append('\n')
@@ -95,6 +101,9 @@ if __name__ == "__main__":
                 result = result[:4] + ': ' + result[4:]
 
             if ('KOONNUT' in result and 'KOONNUT:' not in result):
+                result = result[:7] + ': ' + result[7:]
+
+            if ('KUVITUS' in result and 'KUVITUS:' not in result):
                 result = result[:7] + ': ' + result[7:]
 
             if ('KOONNEET' in result and 'KOONNEET:' not in result):
