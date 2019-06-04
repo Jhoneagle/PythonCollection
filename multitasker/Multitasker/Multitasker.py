@@ -28,8 +28,8 @@ if __name__ == "__main__":
             if (parse[length - 4] == '.' or parse[length - 4] == '!' or parse[length - 4] == '?'):
                 if (parse[length - 3] == '"'):
                     if (parse[length - 2] == ' '):
-                    parse.append('\n')
-                    parse.append('\n')
+                        parse.append('\n')
+                        parse.append('\n')
 
             if (parse[length - 3] == '.' or parse[length - 3] == '!' or parse[length - 3] == '?'):
                 if (parse[length - 2] == ' ' or parse[length - 2] == '"'):
